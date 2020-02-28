@@ -1,0 +1,70 @@
+#!/bin/bash
+
+####Constraints
+
+first_num=0
+second_num=0
+operator=
+
+#####Functions
+
+add()
+{
+    echo "first number + second number = $((first_num + second_num))"
+}
+
+subtract()
+{
+    echo "first number - second number = $((first_num - second_num))"
+}
+
+multiple()
+{
+    echo "first number * second number = $((first_num * second_num))"
+}
+
+divide()
+{
+    echo "first number / second number = $((first_num / second_num))"
+}
+
+modulate()
+{
+    echo "first number % second number = $((first_num % second_num))"
+}
+
+power()
+{
+    echo "first number raised to the"
+    echo "power of the second number   = $((first_num ** second_num))"
+}
+
+
+#######Main
+echo -n "enter operator -->"
+read operator
+
+if [  "$operator" = "exit" ]; then
+    exit 1
+fi
+
+echo -n "Enter the first number --> "
+read first_num
+echo -n "Enter the second number --> "
+read second_num
+
+set -x
+if [ "$operator" = "+" ]; then
+    $(add)
+elif [ "$operator" = "-" ]; then
+    $(subtract)
+elif [ "$operator" = "*" ]; then
+    $(multiple)
+elif [ "$operator" = "/" ]; then
+    $(divide)
+elif [ "$operator" = "%" ]; then
+    $(modulate)
+elif [ "$operator" = "**" ]; then
+    $(power)
+fi
+set +x
